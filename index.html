@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNEXPOTools - Herramientas para Politécnicos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        @media print {
+            /* Configurar la página en formato horizontal (landscape) */
+            @page {
+                size: landscape;
+                margin: 10mm;
+            }
+
+            /* Ocultar la barra de navegación superior, los títulos y botones */
+            nav, header, footer, .no-print, .delete-btn, button {
+                display: none !important;
+            }
+
+            /* Ocultar todo el contenido por defecto */
+            body * {
+                visibility: hidden !important;
+            }
+
+            /* Mostrar únicamente la sección del horario */
+            #app-container, #app-container *, .overflow-x-auto, .overflow-x-auto * {
+                visibility: visible !important;
+            }
+
+            /* Posicionar y expandir la tabla de horario en la hoja horizontal */
+            .overflow-x-auto {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                overflow: visible !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: white !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+
+            th {
+                background: #f3f4f6 !important;
+                color: black !important;
+                border: 1px solid #9ca3af !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            td {
+                border: 1px solid #9ca3af !important;
+            }
+
+            .bg-blue-50, div[class*="dark:bg-cyan"] {
+                background-color: #e0f2fe !important;
+                border: 1px solid #0284c7 !important;
+                color: #030712 !important;
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans min-h-screen flex flex-col justify-between relative overflow-x-hidden transition-colors duration-300">
+
+    <!-- MARCA DE AGUA DE FONDO (OPACIDAD AUMENTADA UN 10%) -->
+    <div class="fixed inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
+        
+        <!-- Imagen para el Modo Claro (opacidad 16%) -->
+        <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center opacity-[0.16] dark:hidden transition-all duration-500"
+             style="background-image: url('assets/logo-light.png'); background-size: contain;">
+        </div>
+
+        <!-- Imagen para el Modo Oscuro (opacidad 25% con efecto neón) -->
+        <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center hidden dark:block opacity-[0.25] filter drop-shadow-[0_0_35px_rgba(6,182,212,0.8)] transition-all duration-500"
+             style="background-image: url('assets/logo-dark.png'); background-size: contain;">
+        </div>
+
+    </div>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="relative z-10 flex flex-col min-h-screen justify-between">
+        
+        <!-- Barra de Navegación Estilo UNEXPO -->
+        <header class="bg-[#0073e6] dark:bg-gray-900/90 dark:backdrop-blur-md dark:border-b dark:border-cyan-500/30 text-white shadow-md transition-colors duration-300">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold tracking-wider cursor-pointer flex items-center gap-2" id="nav-home">
+                    UNEXPO<span class="text-yellow-300 dark:text-cyan-400 dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">Tools</span>
+                </h1>
+                <div class="flex items-center space-x-6">
+                    <nav class="space-x-4 text-sm font-medium hidden sm:block">
+                        <button id="nav-schedule" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Organizador</button>
+                        <button id="nav-checker" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Prelaciones</button>
+                    </nav>
+                    <!-- Botón de Modo Oscuro / Neón -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-blue-700 dark:bg-gray-800 text-yellow-200 dark:text-cyan-400 dark:hover:shadow-[0_0_10px_rgba(6,182,212,0.6)] transition border border-transparent dark:border-cyan-500/50" title="Cambiar modo oscuro/neón">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Dinámico -->
+        <main id="app-container" class="flex-grow container mx-auto px-4 py-8">
+            <!-- Las vistas se cargan aquí -->
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="bg-gray-900/90 dark:bg-gray-950/90 backdrop-blur-sm text-gray-400 text-center py-4 text-sm border-t border-gray-800 dark:border-cyan-900/30 transition-colors duration-300">
+            <p>UNEXPOTools &copy; 2026 - Hecho por y para estudiantes de la UNEXPO ⚙️</p>
+        </footer>
+
+    </div>
+
+    <!-- Script Principal -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
