@@ -1,8 +1,11 @@
-import { pensumsData } from '../data/pensums.js';
+import activePensum from '../../data/pensums/electronica_control.js';
+
+const pensumsDatabase = {
+    "electronica_control": activePensum
+};
 
 let selectedCareerKey = null;
 
-// 1. Vista de selección de Carrera y Mención
 export function renderCheckerIndex() {
     return `
         <div class="max-w-4xl mx-auto py-10">
@@ -19,25 +22,22 @@ export function renderCheckerIndex() {
                 <div class="space-y-6">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 dark:text-cyan-300 mb-2">1. Selecciona tu Carrera:</label>
-                        <select id="select-career" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-400">
+                        <select id="select-career" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium">
                             <option value="">-- Elige una carrera --</option>
                             <option value="electronica">Ingeniería Electrónica</option>
-                            <option value="industrial" disabled>Ingeniería Industrial (Próximamente)</option>
-                            <option value="mecanica" disabled>Ingeniería Mecánica (Próximamente)</option>
                         </select>
                     </div>
 
                     <div id="mencion-container" style="display: none;">
                         <label class="block text-sm font-semibold text-gray-700 dark:text-cyan-300 mb-2">2. Selecciona la Mención:</label>
-                        <select id="select-mencion" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-400">
+                        <select id="select-mencion" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium">
                             <option value="control">Mención: Control</option>
-                            <option value="comunicaciones" disabled>Mención: Comunicaciones (Próximamente)</option>
                         </select>
                     </div>
 
                     <div class="pt-4 flex justify-between items-center flex-wrap gap-4">
                         <button id="back-home-pensum" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:text-cyan-400 text-gray-800 px-4 py-2.5 rounded-xl text-sm font-medium transition">&larr; Volver al inicio</button>
-                        <button id="btn-load-pensum" disabled class="bg-blue-600 hover:bg-blue-700 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white px-6 py-3 rounded-xl font-bold transition opacity-50 cursor-not-allowed shadow-md dark:shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                        <button id="btn-load-pensum" disabled class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold transition opacity-50 cursor-not-allowed">
                             Cargar mi Pénsum ➔
                         </button>
                     </div>
@@ -71,18 +71,16 @@ export function initCheckerLogic(routerCallback) {
 
     if (btnLoad) {
         btnLoad.addEventListener('click', () => {
-            if (selectedCareerKey && pensumsData[selectedCareerKey]) {
-                renderActivePensumTree(selectedCareerKey, routerCallback);
+            if (selectedCareerKey && pensumsDatabase[selectedCareerKey]) {
+                const pensumObj = pensumsDatabase[selectedCareerKey];
+                renderActivePensumTree(selectedCareerKey, pensumObj, routerCallback);
             }
         });
     }
 }
 
-// 2. Vista del Árbol RPG Interactivo una vez cargada la carrera
-function renderActivePensumTree(careerKey, routerCallback) {
-    const activePensum = pensumsData[careerKey];
+function renderActivePensumTree(careerKey, activePensum, routerCallback) {
     let courseStates = JSON.parse(localStorage.getItem(`unexpo_pensum_${careerKey}_states`)) || {};
-
     const appContainer = document.getElementById('app-container');
     if (!appContainer) return;
 
@@ -341,7 +339,6 @@ function renderActivePensumTree(careerKey, routerCallback) {
                 const node = document.createElement('div');
                 let state = courseStates[course.code];
                 let available = isCourseAvailable(course);
-
                 let statusClass = 'border-gray-700 bg-gray-900 opacity-35 grayscale';
                 let statusText = 'Bloq';
                 let iconText = '🔒';

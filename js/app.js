@@ -1,5 +1,6 @@
 import { renderHome } from './views/home.js';
 import { renderScheduleView, initScheduleLogic } from './views/schedule.js';
+import { renderCheckerIndex, initCheckerLogic } from './views/checker.js';
 
 const appContainer = document.getElementById('app-container');
 const themeToggleBtn = document.getElementById('theme-toggle');
@@ -53,19 +54,9 @@ function router(route) {
     } 
     else if (route === 'checker') {
         appContainer.innerHTML = renderCheckerIndex();
-        initCheckerLogic(router); // Le pasamos el router
+        initCheckerLogic(router); // Inicializa los selectores y pasa el router
+        
         const backHomeBtn = document.getElementById('back-home-pensum');
-        if (backHomeBtn) backHomeBtn.addEventListener('click', () => router('home'));
-    }
-    else if (route === 'checker') {
-        appContainer.innerHTML = `
-            <div class="max-w-2xl mx-auto text-center py-20">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white">UNEXPO Pénsum+ (Verificador) 🔍</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-6">Próximamente configuraremos este módulo con prelaciones.</p>
-                <button id="back-home" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:text-cyan-400 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition">&larr; Volver al inicio</button>
-            </div>
-        `;
-        const backHomeBtn = document.getElementById('back-home');
         if (backHomeBtn) backHomeBtn.addEventListener('click', () => router('home'));
     }
 }
