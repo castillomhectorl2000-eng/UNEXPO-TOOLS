@@ -1,7 +1,21 @@
-import activePensum from '../../data/pensums/electronica_control.js';
+import activePensumControl from '../../data/pensums/electronica_control.js';
+import activePensumComputacion from '../../data/pensums/electronica_computacion.js';
+import activePensumComunicaciones from '../../data/pensums/electronica_comunicaciones.js';
+import activePensumElectrica from '../../data/pensums/electrica.js';
+import activePensumMecanica from '../../data/pensums/mecanica.js';
+import activePensumMetalurgica from '../../data/pensums/metalurgica.js';
+import activePensumQuimica from '../../data/pensums/quimica.js';
+import activePensumIndustrial from '../../data/pensums/industrial.js';
 
 const pensumsDatabase = {
-    "electronica_control": activePensum
+    "electronica_control": activePensumControl,
+    "electronica_computacion": activePensumComputacion,
+    "electronica_comunicaciones": activePensumComunicaciones,
+    "electrica": activePensumElectrica,
+    "mecanica": activePensumMecanica,
+    "metalurgica": activePensumMetalurgica,
+    "quimica": activePensumQuimica,
+    "industrial": activePensumIndustrial
 };
 
 let selectedCareerKey = null;
@@ -25,6 +39,11 @@ export function renderCheckerIndex() {
                         <select id="select-career" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium">
                             <option value="">-- Elige una carrera --</option>
                             <option value="electronica">Ingeniería Electrónica</option>
+                            <option value="electrica">Ingeniería Eléctrica</option>
+                            <option value="mecanica">Ingeniería Mecánica</option>
+                            <option value="metalurgica">Ingeniería Metalúrgica</option>
+                            <option value="quimica">Ingeniería Química</option>
+                            <option value="industrial">Ingeniería Industrial</option>
                         </select>
                     </div>
 
@@ -32,6 +51,8 @@ export function renderCheckerIndex() {
                         <label class="block text-sm font-semibold text-gray-700 dark:text-cyan-300 mb-2">2. Selecciona la Mención:</label>
                         <select id="select-mencion" class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-950 border border-gray-300 dark:border-cyan-500/40 rounded-xl text-gray-800 dark:text-gray-100 font-medium">
                             <option value="control">Mención: Control</option>
+                            <option value="computacion">Mención: Computación</option>
+                            <option value="comunicaciones">Mención: Comunicaciones</option>
                         </select>
                     </div>
 
@@ -49,17 +70,32 @@ export function renderCheckerIndex() {
 
 export function initCheckerLogic(routerCallback) {
     const selectCareer = document.getElementById('select-career');
+    const selectMencion = document.getElementById('select-mencion');
     const mencionContainer = document.getElementById('mencion-container');
     const btnLoad = document.getElementById('btn-load-pensum');
+
+    function updateSelection() {
+        const careerVal = selectCareer.value;
+        if (careerVal === 'electronica') {
+            mencionContainer.style.display = 'block';
+            const mencion = selectMencion.value || 'control';
+            selectedCareerKey = `electronica_${mencion}`;
+        } else if (careerVal) {
+            mencionContainer.style.display = 'none';
+            selectedCareerKey = careerVal;
+        } else {
+            mencionContainer.style.display = 'none';
+            selectedCareerKey = null;
+        }
+    }
 
     if (selectCareer) {
         selectCareer.addEventListener('change', (e) => {
             const val = e.target.value;
-            if (val === 'electronica') {
-                mencionContainer.style.display = 'block';
+            if (val) {
                 btnLoad.disabled = false;
                 btnLoad.classList.remove('opacity-50', 'cursor-not-allowed');
-                selectedCareerKey = 'electronica_control';
+                updateSelection();
             } else {
                 mencionContainer.style.display = 'none';
                 btnLoad.disabled = true;
@@ -67,6 +103,10 @@ export function initCheckerLogic(routerCallback) {
                 selectedCareerKey = null;
             }
         });
+    }
+
+    if (selectMencion) {
+        selectMencion.addEventListener('change', updateSelection);
     }
 
     if (btnLoad) {
@@ -157,11 +197,12 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
         if (courseStates[course.code] === 'completed' || courseStates[course.code] === 'enrolled') return true;
 
         let totalUC = calculateTotalUC();
+        if (course.customCond === "30 U.C. APROB." && totalUC < 30) return false;
         if (course.customCond === "40 U.C. APROB." && totalUC < 40) return false;
         if (course.customCond === "60 U.C. APROB." && totalUC < 60) return false;
         if (course.customCond === "APROBAR TODO") {
             let allCodes = [];
-            activePensum.semesters.forEach(s => s.courses.forEach(c => { if(c.code !== "EL52216") allCodes.push(c.code); }));
+            activePensum.semesters.forEach(s => s.courses.forEach(c => { if(c.code !== "EL52216" && c.code !== "IM51216" && c.code !== "MT52216" && c.code !== "IQ47216" && c.code !== "124216") allCodes.push(c.code); }));
             return allCodes.every(c => courseStates[c] === 'completed');
         }
 
@@ -209,11 +250,12 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
                     if (checkPrereqs(course)) {
                         let totalUC = calculateTotalUC();
                         let passesCond = true;
+                        if (course.customCond === "30 U.C. APROB." && totalUC < 30) passesCond = false;
                         if (course.customCond === "40 U.C. APROB." && totalUC < 40) passesCond = false;
                         if (course.customCond === "60 U.C. APROB." && totalUC < 60) passesCond = false;
                         if (course.customCond === "APROBAR TODO") {
                             let allCodes = [];
-                            activePensum.semesters.forEach(s => s.courses.forEach(c => { if(c.code !== "EL52216") allCodes.push(c.code); }));
+                            activePensum.semesters.forEach(s => s.courses.forEach(c => { if(c.code !== "EL52216" && c.code !== "IM51216" && c.code !== "MT52216" && c.code !== "IQ47216" && c.code !== "124216") allCodes.push(c.code); }));
                             passesCond = allCodes.every(c => courseStates[c] === 'completed');
                         }
 
@@ -339,6 +381,11 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
                 const node = document.createElement('div');
                 let state = courseStates[course.code];
                 let available = isCourseAvailable(course);
+                
+                let prereqText = course.prereqs && course.prereqs.length > 0 ? course.prereqs.join(', ') : 'Ninguno';
+                let coreqText = course.coreqs && course.coreqs.length > 0 ? ` | Co-reqs: ${course.coreqs.join(', ')}` : '';
+                let tooltipInfo = `Código: ${course.code}\nPre-requisitos: ${prereqText}${coreqText}`;
+
                 let statusClass = 'border-gray-700 bg-gray-900 opacity-35 grayscale';
                 let statusText = 'Bloq';
                 let iconText = '🔒';
@@ -359,6 +406,7 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
 
                 node.className = `skill-node w-[145px] h-[90px] rounded-lg border-2 flex flex-col justify-between cursor-pointer p-2.5 relative transition hover:scale-105 select-none ${statusClass}`;
                 node.id = `node-${course.code}`;
+                node.title = tooltipInfo;
                 node.onclick = () => toggleCourse(course.code);
 
                 node.innerHTML = `
