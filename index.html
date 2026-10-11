@@ -81,34 +81,45 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans min-h-screen flex flex-col justify-between relative overflow-x-hidden transition-colors duration-300">
 
-    <!-- MARCA DE AGUA DE FONDO (OPACIDAD AUMENTADA UN 10%) -->
+    <!-- MARCA DE AGUA DE FONDO -->
     <div class="fixed inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
-        
-        <!-- Imagen para el Modo Claro (opacidad 16%) -->
+        <!-- Imagen para el Modo Claro -->
         <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center opacity-[0.16] dark:hidden transition-all duration-500"
              style="background-image: url('assets/logo-light.png'); background-size: contain;">
         </div>
-
-        <!-- Imagen para el Modo Oscuro (opacidad 25% con efecto neón) -->
+        <!-- Imagen para el Modo Oscuro -->
         <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center hidden dark:block opacity-[0.25] filter drop-shadow-[0_0_35px_rgba(6,182,212,0.8)] transition-all duration-500"
              style="background-image: url('assets/logo-dark.png'); background-size: contain;">
         </div>
-
     </div>
+
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="relative z-10 flex flex-col min-h-screen justify-between">
         
         <!-- Barra de Navegación Estilo UNEXPO -->
         <header class="bg-[#0073e6] dark:bg-gray-900/90 dark:backdrop-blur-md dark:border-b dark:border-cyan-500/30 text-white shadow-md transition-colors duration-300">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 class="text-xl font-bold tracking-wider cursor-pointer flex items-center gap-2" id="nav-home">
-                    UNEXPO<span class="text-yellow-300 dark:text-cyan-400 dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">Tools</span>
-                </h1>
-                <div class="flex items-center space-x-6">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center flex-wrap gap-4">
+                <div class="flex items-center gap-6">
+                    <h1 class="text-xl font-bold tracking-wider cursor-pointer flex items-center gap-2" id="nav-home">
+                        UNEXPO<span class="text-yellow-300 dark:text-cyan-400 dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">Tools</span>
+                    </h1>
                     <nav class="space-x-4 text-sm font-medium hidden sm:block">
                         <button id="nav-schedule" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Organizador</button>
                         <button id="nav-checker" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Prelaciones</button>
                     </nav>
+                </div>
+
+                <!-- Accesos rápidos de ingenierías y Controles de la derecha -->
+                <div class="flex items-center space-x-4 flex-wrap">
+                    <div class="hidden lg:flex items-center gap-1 bg-blue-800/60 dark:bg-gray-950 p-1 rounded-xl border border-blue-600/40 dark:border-cyan-500/30">
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="electronica">Electrónica</button>
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="electrica">Eléctrica</button>
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="mecanica">Mecánica</button>
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="metalurgica">Metalúrgica</button>
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="quimica">Química</button>
+                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="industrial">Industrial</button>
+                    </div>
+
                     <!-- Botón de Modo Oscuro / Neón -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-blue-700 dark:bg-gray-800 text-yellow-200 dark:text-cyan-400 dark:hover:shadow-[0_0_10px_rgba(6,182,212,0.6)] transition border border-transparent dark:border-cyan-500/50" title="Cambiar modo oscuro/neón">
                         <span id="theme-icon">🌙</span>
@@ -122,34 +133,54 @@
             <!-- Las vistas se cargan aquí -->
         </main>
 
-        <!-- Pie de página -->
-        <footer class="bg-gray-900/90 dark:bg-gray-950/90 backdrop-blur-sm text-gray-400 text-center py-4 text-sm border-t border-gray-800 dark:border-cyan-900/30 transition-colors duration-300">
-            <p>UNEXPOTools &copy; 2026 - Hecho por y para estudiantes de la UNEXPO ⚙️</p>
-             <script>
-  atOptions = {
-    'key' : 'fce251aef9dfe97c484f6e55176b9918',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://bauval.org/22/fce251aef9dfe97c484f6e55176b9918"></script>
-<script>
-  atOptions = {
-    'key' : '5e788f4f77a45f3693de1dd62336706f',
-    'format' : 'iframe',
-    'height' : 60,
-    'width' : 468,
-    'params' : {}
-  };
-</script>
-<script src="https://bauval.org/22/5e788f4f77a45f3693de1dd62336706f"></script>    
+        <!-- Pie de página con Anuncios ordenados uno al lado del otro -->
+        <footer class="bg-gray-900/90 dark:bg-gray-950/90 backdrop-blur-sm text-gray-400 py-6 px-4 text-sm border-t border-gray-800 dark:border-cyan-900/30 transition-colors duration-300">
+            <div class="container mx-auto flex flex-col items-center gap-4">
+                
+                <!-- Contenedor para colocar los anuncios uno al lado del otro -->
+                <div class="flex flex-wrap justify-center items-center gap-6 overflow-x-auto max-w-full py-2">
+                    <div>
+                        <script>
+                            atOptions = {
+                                'key' : 'fce251aef9dfe97c484f6e55176b9918',
+                                'format' : 'iframe',
+                                'height' : 90,
+                                'width' : 728,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://bauval.org/22/fce251aef9dfe97c484f6e55176b9918"></script>
+                    </div>
+                    <div>
+                        <script>
+                            atOptions = {
+                                'key' : '5e788f4f77a45f3693de1dd62336706f',
+                                'format' : 'iframe',
+                                'height' : 60,
+                                'width' : 468,
+                                'params' : {}
+                            };
+                        </script>
+                        <script src="https://bauval.org/22/5e788f4f77a45f3693de1dd62336706f"></script>
+                    </div>
+                </div>
+
+                <p class="mt-2">UNEXPOTools &copy; 2026 - Hecho por y para estudiantes de la UNEXPO ⚙️</p>
+            </div>
         </footer>
 
     </div>
 
-    <!-- Script Principal -->
+    <!-- Script Principal y Manejador de Accesos Rápidos de la Barra -->
     <script type="module" src="js/app.js"></script>
+    <script>
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('nav-career-btn')) {
+                // Redirigir al verificador (checker) cuando esté implementado el router global
+                const event = new CustomEvent('navigate', { detail: 'checker' });
+                window.dispatchEvent(event);
+            }
+        });
+    </script>
 </body>
 </html>

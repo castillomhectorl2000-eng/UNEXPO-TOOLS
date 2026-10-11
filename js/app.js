@@ -47,21 +47,44 @@ function router(route) {
     } 
     else if (route === 'schedule') {
         appContainer.innerHTML = renderScheduleView();
-        initScheduleLogic(); // Inicializa la lectura del TXT y la grilla
+        initScheduleLogic(); 
         
         const backHomeBtn = document.getElementById('back-home');
         if (backHomeBtn) backHomeBtn.addEventListener('click', () => router('home'));
     } 
     else if (route === 'checker') {
         appContainer.innerHTML = renderCheckerIndex();
-        initCheckerLogic(router); // Inicializa los selectores y pasa el router
+        initCheckerLogic(router); 
         
         const backHomeBtn = document.getElementById('back-home-pensum');
         if (backHomeBtn) backHomeBtn.addEventListener('click', () => router('home'));
     }
+    else if (route === 'proximamente') {
+        const careerKey = localStorage.getItem('unexpo_selected_career') || 'esta ingeniería';
+        appContainer.innerHTML = `
+            <div class="max-w-2xl mx-auto text-center py-20">
+                <div class="bg-blue-50 dark:bg-cyan-950/40 border border-blue-200 dark:border-cyan-500/40 rounded-3xl p-10 shadow-lg">
+                    <div class="text-6xl mb-4">🚧</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-3">
+                        Herramientas de ${careerKey.toUpperCase()}
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Esta sección de herramientas especializadas se encuentra en desarrollo activo. ¡Próximamente estará disponible con calculadoras, simuladores y recursos exclusivos!
+                    </p>
+                    <button id="back-home-proxy" class="bg-[#0073e6] hover:bg-blue-700 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+                        &larr; Volver al Inicio
+                    </button>
+                </div>
+            </div>
+        `;
+        const btnBack = document.getElementById('back-home-proxy');
+        if (btnBack) {
+            btnBack.addEventListener('click', () => router('home'));
+        }
+    }
 }
 
-// Configurar enlaces de la barra de navegación superior
+// Configurar enlaces de la barra de navegación superior principal
 const navHome = document.getElementById('nav-home');
 const navSchedule = document.getElementById('nav-schedule');
 const navChecker = document.getElementById('nav-checker');
@@ -69,6 +92,15 @@ const navChecker = document.getElementById('nav-checker');
 if (navHome) navHome.addEventListener('click', () => router('home'));
 if (navSchedule) navSchedule.addEventListener('click', () => router('schedule'));
 if (navChecker) navChecker.addEventListener('click', () => router('checker'));
+
+// Escuchar clics en los botones de ingeniería de la barra superior
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav-career-btn')) {
+        const career = e.target.getAttribute('data-career');
+        localStorage.setItem('unexpo_selected_career', career);
+        router('proximamente');
+    }
+});
 
 // Cargar la pantalla de inicio por defecto al abrir la aplicación
 document.addEventListener('DOMContentLoaded', () => {
