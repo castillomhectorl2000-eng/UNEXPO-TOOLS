@@ -386,8 +386,7 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
                 let coreqText = course.coreqs && course.coreqs.length > 0 ? ` | Co-reqs: ${course.coreqs.join(', ')}` : '';
                 let tooltipInfo = `Código: ${course.code}\nPre-requisitos: ${prereqText}${coreqText}`;
 
-                let statusClass = 'border-gray-700 bg-gray-900 opacity-35 grayscale';
-                let statusText = 'Bloq';
+let statusClass = 'border-gray-300 bg-gray-200 text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 opacity-80 grayscale';                let statusText = 'Bloq';
                 let iconText = '🔒';
 
                 if (state === 'completed') {
@@ -409,17 +408,17 @@ function renderActivePensumTree(careerKey, activePensum, routerCallback) {
                 node.title = tooltipInfo;
                 node.onclick = () => toggleCourse(course.code);
 
-                node.innerHTML = `
-                    <div class="flex justify-between items-center text-[10px] font-mono text-gray-400 font-bold">
-                        <span>${course.code}</span>
-                        <span>${iconText}</span>
-                    </div>
-                    <div class="text-[11px] font-bold leading-tight text-gray-100 line-clamp-2">${course.name}</div>
-                    <div class="flex justify-between items-center text-[10px] border-t border-white/10 pt-1 text-gray-300">
-                        <span class="text-amber-400 font-bold">${course.uc} UC</span>
-                        <span>${statusText}</span>
-                    </div>
-                `;
+node.innerHTML = `
+        <div class="flex justify-between items-center text-[10px] font-mono text-gray-500 dark:text-gray-400 font-bold">
+            <span>${course.code}</span>
+            <span>${iconText}</span>
+        </div>
+        <div class="text-[11px] font-bold leading-tight text-gray-800 dark:text-gray-100 line-clamp-2">${course.name}</div>
+        <div class="flex justify-between items-center text-[10px] border-t border-gray-300/40 dark:border-white/10 pt-1 text-gray-600 dark:text-gray-300">
+            <span class="text-amber-600 dark:text-amber-400 font-bold">${course.uc} UC</span>
+            <span>${statusText}</span>
+        </div>
+    `;
 
                 cluster.appendChild(node);
             });
