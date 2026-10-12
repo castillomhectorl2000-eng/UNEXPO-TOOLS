@@ -1,6 +1,7 @@
 import { renderHome } from './views/home.js';
 import { renderScheduleView, initScheduleLogic } from './views/schedule.js';
 import { renderCheckerIndex, initCheckerLogic } from './views/checker.js';
+import { renderBibliotecaView, initBibliotecaLogic } from './views/biblioteca.js';
 
 const appContainer = document.getElementById('app-container');
 const themeToggleBtn = document.getElementById('theme-toggle');
@@ -41,9 +42,11 @@ function router(route) {
         // Activar eventos de las tarjetas en el inicio
         const cardSchedule = document.getElementById('card-schedule');
         const cardChecker = document.getElementById('card-checker');
+        const cardBiblioteca = document.getElementById('card-biblioteca');
 
         if (cardSchedule) cardSchedule.addEventListener('click', () => router('schedule'));
         if (cardChecker) cardChecker.addEventListener('click', () => router('checker'));
+        if (cardBiblioteca) cardBiblioteca.addEventListener('click', () => router('biblioteca'));
     } 
     else if (route === 'schedule') {
         appContainer.innerHTML = renderScheduleView();
@@ -59,6 +62,10 @@ function router(route) {
         const backHomeBtn = document.getElementById('back-home-pensum');
         if (backHomeBtn) backHomeBtn.addEventListener('click', () => router('home'));
     }
+    else if (route === 'biblioteca') {
+        appContainer.innerHTML = renderBibliotecaView();
+        initBibliotecaLogic(router);
+    }
     else if (route === 'proximamente') {
         const careerKey = localStorage.getItem('unexpo_selected_career') || 'esta ingeniería';
         appContainer.innerHTML = `
@@ -69,7 +76,7 @@ function router(route) {
                         Herramientas de ${careerKey.toUpperCase()}
                     </h2>
                     <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                        Esta sección de herramientas especializadas se encuentra en desarrollo activo. ¡Próximamente estará disponible con calculadoras, simuladores y recursos exclusivos!
+                        Esta sección de herramientas especializadas se encuentra en desarrollo activo. ¡Próximamente estará disponible!
                     </p>
                     <button id="back-home-proxy" class="bg-[#0073e6] hover:bg-blue-700 dark:bg-cyan-600 dark:hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
                         &larr; Volver al Inicio
@@ -78,13 +85,11 @@ function router(route) {
             </div>
         `;
         const btnBack = document.getElementById('back-home-proxy');
-        if (btnBack) {
-            btnBack.addEventListener('click', () => router('home'));
-        }
+        if (btnBack) btnBack.addEventListener('click', () => router('home'));
     }
 }
 
-// Configurar enlaces de la barra de navegación superior principal
+// Configurar enlaces principales de la barra superior
 const navHome = document.getElementById('nav-home');
 const navSchedule = document.getElementById('nav-schedule');
 const navChecker = document.getElementById('nav-checker');
@@ -93,13 +98,9 @@ if (navHome) navHome.addEventListener('click', () => router('home'));
 if (navSchedule) navSchedule.addEventListener('click', () => router('schedule'));
 if (navChecker) navChecker.addEventListener('click', () => router('checker'));
 
-// Escuchar clics en los botones de ingeniería de la barra superior
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('nav-career-btn')) {
-        const career = e.target.getAttribute('data-career');
-        localStorage.setItem('unexpo_selected_career', career);
-        router('proximamente');
-    }
+// Escuchar eventos globales de navegación (para los botones superiores de ingenierías y biblioteca)
+window.addEventListener('navigate', (e) => {
+    router(e.detail);
 });
 
 // Cargar la pantalla de inicio por defecto al abrir la aplicación
