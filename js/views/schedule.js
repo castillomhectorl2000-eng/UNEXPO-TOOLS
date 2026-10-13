@@ -75,12 +75,13 @@ export function initScheduleLogic() {
     const hours = Array.from({ length: 12 }, (_, i) => i + 7);
     let selectedSubjectCode = null;
 
-    function parseTextToDB(rawText) {
+function parseTextToDB(rawText) {
         const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         let db = [];
 
         lines.forEach(line => {
-            const codeMatch = line.match(/([A-Z]{2,4}\d{3,4})/);
+            // Regex ajustada para detectar códigos como I13114 (1 o más letras seguidas de números)
+            const codeMatch = line.match(/([A-Z]{1,4}\d+)/);
             if (!codeMatch) return;
             const code = codeMatch[1];
             
@@ -124,7 +125,6 @@ export function initScheduleLogic() {
         });
         return db;
     }
-
     function renderScheduleTable(previewBlocks = []) {
         const tbody = document.getElementById('schedule-body');
         if (!tbody) return;
