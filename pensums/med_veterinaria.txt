@@ -1,0 +1,47 @@
+PIULCL, Lenguaje y Comunicación Liberadora, 3, Ninguna, INTRODUCTORIO
+PIUPCC, Pensamiento Colonial y Cultura para el Buen Vivir, 3, Ninguna, INTRODUCTORIO
+PIUPEM, Pensamiento Estratégico Matemático, 3, Ninguna, INTRODUCTORIO
+PIURB, Revolución Bolivariana, 3, Ninguna, INTRODUCTORIO
+PIUSSD, Soberanía Seguridad y Defensa, 3, Ninguna, INTRODUCTORIO
+MVAADI105, Anatomía de los Animales Domésticos I, 8, Ninguna, OBLIGATORIA
+MVBI400, Bioquímica I, 4, Ninguna, OBLIGATORIA
+MVED505, Estadística Descriptiva, 4, Ninguna, OBLIGATORIA
+MVHE205, Histología y Embriología, 6, Ninguna, OBLIGATORIA
+MVITI805, Inglés Técnico I, 2, Ninguna, OBLIGATORIA
+MVPYI005, Proyecto I, 7, Ninguna, OBLIGATORIA
+MVSPAII310, Sistemas de Producción Animal II, 6, Ninguna, OBLIGATORIA
+MVARC125, Actividad Recreativa y Cultural, 2, Ninguna, OBLIGATORIA
+MVANAP710, Alimentación y Nutrición de Poligástricos, 4, Ninguna, OBLIGATORIA
+MVFAB215, Fisiología Animal Básica, 6, Ninguna, OBLIGATORIA
+MVMSPI320, Manejo de Sistemas de Producción Animal I, 6, Ninguna, OBLIGATORIA
+MVMV410, Microbiología Veterinaria, 6, Ninguna, OBLIGATORIA
+MVPEP415, Parasitología y Enfermedades Parasitarias, 6, Ninguna, OBLIGATORIA
+MVPYII010, Proyecto II, 7, MVPYI005, OBLIGATORIA
+MVB510, Bioestadística, 4, MVED505, OBLIGATORIA
+MVFT420, Farmacología y Toxicología, 6, MVBI400, OBLIGATORIA
+MVIA725, Imagenología Animal, 4, Ninguna, OBLIGATORIA
+MVLC730, Laboratorio Clínico, 6, MVMV410, OBLIGATORIA
+MVMG335, Mejoramiento Genético, 4, Ninguna, OBLIGATORIA
+MVPYIII015, Proyecto III, 7, MVPYII010, OBLIGATORIA
+MVS720, Semiología, 6, MVFAB215, OBLIGATORIA
+MVCI740, Cirugía I (Instrumentación), 6, MVS720, OBLIGATORIA
+MVENI350, Enfermedades No Infecciosas, 4, MVS720, OBLIGATORIA
+MVICV750, Introducción a la Clínica Veterinaria, 6, MVS720, OBLIGATORIA
+MVPP900, Prácticas Profesionales, 8, Ninguna, OBLIGATORIA
+MVRAI250, Reproducción Animal I, 4, MVFAB215, OBLIGATORIA
+MVSP340, Salud Pública, 4, Ninguna, OBLIGATORIA
+MVCII745, Cirugía II, 6, MVCI740, OBLIGATORIA
+MVCI755, Clínica I, 6, MVICV750, OBLIGATORIA
+MVE360, Epidemiología, 4, MVB510, OBLIGATORIA
+MVHA430, Higiene de los Alimentos, 4, MVMV410, OBLIGATORIA
+MVMR380, Medicina de Rumiantes, 6, MVCI755, OBLIGATORIA
+MVPRP370, Prevención y Riesgo en la Profesión, 4, Ninguna, OBLIGATORIA
+MVPYIV020, Proyecto IV, 7, MVPYIII015, OBLIGATORIA
+MVBCV270, Biotecnología en Ciencias Veterinarias, 6, Ninguna, OBLIGATORIA
+MVIPL450, Industria de Productos Lácteos, 6, MVHA430, OBLIGATORIA
+MVLV150, Legislación Veterinaria, 4, Ninguna, OBLIGATORIA
+MVMEC385, Medicina en Equinos Caninos y otras Especies, 6, MVCI755, OBLIGATORIA
+MVPYV025, Proyecto V, 7, MVPYIV020, OBLIGATORIA
+MVELIUAD, Electiva I: Uso y Aprovechamiento de los Desechos Orgánicos, 2, Ninguna, ELECTIVA
+MVELIIOEP, Electiva II: Orientación e Integración Psicosocial, 2, Ninguna, ELECTIVA
+MVELIIIFS, Electiva III: Fauna Silvestre, 2, Ninguna, ELECTIVA

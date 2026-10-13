@@ -1,0 +1,33 @@
+EINICI111, Estrategias Cognitivas, 3, Ninguna, INTRODUCTORIO
+EINICI112, Iniciación Universitaria, 2, Ninguna, INTRODUCTORIO
+EINICI113, Uso de las Tecnologías de La Información y Comunicación, 2, Ninguna, INTRODUCTORIO
+EINICI114, Lenguaje y Comunicación, 2, Ninguna, INTRODUCTORIO
+EINICI115, Ética Valores y Autobiografía, 2, Ninguna, INTRODUCTORIO
+EINICI116, Pensamiento Robinsoniano, 2, Ninguna, INTRODUCTORIO
+EINICI117, Pensamiento Andragógico, 2, Ninguna, INTRODUCTORIO
+EINICG211, Terminología en Estadística e Investigación, 3, Ninguna, GENERAL
+EINICG212, Fundamentos de la Educación Inicial, 3, Ninguna, GENERAL
+EINICG213, Psicología del Desarrollo de 0 a 6 años, 3, Ninguna, GENERAL
+EINICG214, Psicología del Aprendizaje, 3, Ninguna, GENERAL
+EINICG215, Sociología de la Educación, 2, Ninguna, GENERAL
+EINICG216, Filosofía e Historia de la Educación, 2, Ninguna, GENERAL
+EINICG217, Planificación de la Educación, 3, Ninguna, GENERAL
+EINICG218, Investigación Educativa, 3, EINICG211, GENERAL
+EINICG219, Prácticas Profesionales Fase I, 3, Ninguna, GENERAL
+EINICG220, Prácticas Profesionales Fase II, 3, EINICG219, GENERAL
+EINICP311, Prácticas Profesionales Fase III, 3, EINICG220, PROFESIONAL
+EINICP312, Planificación Curricular en la Educación Inicial, 3, EINICG217, PROFESIONAL
+EINICP313, Construcción de Procesos Matemáticos en niños y niñas de 0 a 6 años, 3, EINICG212; EINICG214, PROFESIONAL
+EINICP314, Construcción de Procesos de Aprendizajes de la Lectura y la Escritura en niños y niñas de 0 a 6 años, 3, EINICG212; EINICG214, PROFESIONAL
+EINICP315, Expresión Plástica y Musical en la Educación Inicial, 3, Ninguna, PROFESIONAL
+EINICP316, Literatura Infantil, 2, Ninguna, PROFESIONAL
+EINICP317, Salud Nutrición y Recreación Infantil, 3, Ninguna, PROFESIONAL
+EINICP318, Proyecto I - Educación Inicial, 4, EINICG218, PROFESIONAL
+EINICP319, Proyecto II - Educación Inicial, 4, EINICP318, PROFESIONAL
+EINICP320, Seminario de Trabajo Especial de Grado, 4, EINICP319, PROFESIONAL
+EINICP321, Trabajo Especial de Grado, 10, EINICP320, PROFESIONAL
+EINICP322, Servicio Comunitario, 0, Ninguna, PROFESIONAL
+EINIEL01, Estimulación Temprana, 3, Ninguna, ELECTIVA
+EINIEL02, Tecnología Educativa Aplicada a la Educación Inicial, 3, Ninguna, ELECTIVA
+EINIEL03, Orientación Familiar y Comunitaria, 3, Ninguna, ELECTIVA
+EINIEL04, Gerencia de Instituciones de Educación Inicial, 3, Ninguna, ELECTIVA

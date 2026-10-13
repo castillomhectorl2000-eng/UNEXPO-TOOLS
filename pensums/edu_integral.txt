@@ -1,0 +1,39 @@
+EINTCI101, Iniciación Universitaria, 2, Ninguna, INTRODUCTORIO
+EINTCI102, Lenguaje y Comunicación, 2, Ninguna, INTRODUCTORIO
+EINTCI103, Métodos y Técnicas de Estudios, 2, Ninguna, INTRODUCTORIO
+EINTCI104, Precálculo, 3, Ninguna, INTRODUCTORIO
+EINTCI105, Ética Valores y Autobiografía, 2, Ninguna, INTRODUCTORIO
+EINTCI106, Pensamiento Robinsoniano, 2, Ninguna, INTRODUCTORIO
+EINTCI107, Pensamiento Andragógico, 2, Ninguna, INTRODUCTORIO
+EINTCG211, Terminología en Estadística e Investigación, 3, Ninguna, GENERAL
+EINTCG212, Estadística Aplicada a la Educación, 3, EINTCG211, GENERAL
+EINTCG213, Investigación Educativa, 3, EINTCG211, GENERAL
+EINTCG214, Filosofía de la Educación, 2, Ninguna, GENERAL
+EINTCG215, Historia de la Educación en Venezuela, 2, Ninguna, GENERAL
+EINTCG216, Sociología de la Educación, 2, Ninguna, GENERAL
+EINTCG217, Psicología del Desarrollo, 3, Ninguna, GENERAL
+EINTCG218, Psicología del Aprendizaje, 3, EINTCG217, GENERAL
+EINTCG219, Curriculum, 3, Ninguna, GENERAL
+EINTCG220, Orientación Educativa, 3, Ninguna, GENERAL
+EINTCG221, Formación Ciudadana, 2, Ninguna, GENERAL
+EINTCG222, Evaluación de los Aprendizajes, 3, EINTCG219, GENERAL
+EINTEO007, Planificación de la Instrucción, 3, EINTCG219, PROFESIONAL
+EINTCP312, Proyecto I - Educación Integral, 4, EINTCG213, PROFESIONAL
+EINTEO008, Orientación Sexual, 2, EINTCG220, PROFESIONAL
+EINTCP314, Geometría, 3, Ninguna, PROFESIONAL
+EINTCP315, Historia Universal, 2, Ninguna, PROFESIONAL
+EINTCP316, Educación para el Trabajo, 2, Ninguna, PROFESIONAL
+EINTCP317, Educación Ambiental, 2, Ninguna, PROFESIONAL
+EINTCP318, Educación Física y Deportes, 2, Ninguna, PROFESIONAL
+EINTCG233, Práctica Profesional Fase I - Educación Integral, 9, Ninguna, PROFESIONAL
+EINTCP319, Práctica Profesional Fase II - Educación Integral, 9, EINTCG233, PROFESIONAL
+EINTCP320, Proyecto II - Educación Integral, 4, EINTCP312, PROFESIONAL
+EINTCP321, Seminario de Trabajo Especial de Grado, 4, EINTCP320, PROFESIONAL
+EINTCP322, Trabajo Especial de Grado, 10, EINTCP321, PROFESIONAL
+EINTCP323, Servicio Comunitario, 0, Ninguna, PROFESIONAL
+EINTACMT1, Computación Aplicada a la Educación, 2, Ninguna, ELECTIVA
+EINTACMT2, Geometría Analítica, 3, EINTCP314, ELECTIVA
+EINTACMT3, Introducción al Álgebra, 3, Ninguna, ELECTIVA
+EINTACMT4, Historia de los Números, 2, Ninguna, ELECTIVA
+EINTACMT5, Aplicación de las Matemáticas a la Tecnología, 3, Ninguna, ELECTIVA
+EINTACMT6, Matemática III, 3, Ninguna, ELECTIVA

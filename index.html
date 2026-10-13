@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNEXPOTools - Herramientas para Politécnicos</title>
+    <title>UNESR - Pensum+ Interactivo</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,128 +11,91 @@
             darkMode: 'class',
         }
     </script>
-    <style>
-        @media print {
-            /* Configurar la página en formato horizontal (landscape) */
-            @page {
-                size: landscape;
-                margin: 10mm;
-            }
-
-            /* Ocultar la barra de navegación superior, los títulos y botones */
-            nav, header, footer, .no-print, .delete-btn, button {
-                display: none !important;
-            }
-
-            /* Ocultar todo el contenido por defecto */
-            body * {
-                visibility: hidden !important;
-            }
-
-            /* Mostrar únicamente la sección del horario */
-            #app-container, #app-container *, .overflow-x-auto, .overflow-x-auto * {
-                visibility: visible !important;
-            }
-
-            /* Posicionar y expandir la tabla de horario en la hoja horizontal */
-            .overflow-x-auto {
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                width: 100% !important;
-                overflow: visible !important;
-                box-shadow: none !important;
-                border: none !important;
-                background: white !important;
-            }
-
-            body {
-                background: white !important;
-                color: black !important;
-            }
-
-            table {
-                width: 100% !important;
-                border-collapse: collapse !important;
-            }
-
-            th {
-                background: #f3f4f6 !important;
-                color: black !important;
-                border: 1px solid #9ca3af !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            td {
-                border: 1px solid #9ca3af !important;
-            }
-
-            .bg-blue-50, div[class*="dark:bg-cyan"] {
-                background-color: #e0f2fe !important;
-                border: 1px solid #0284c7 !important;
-                color: #030712 !important;
-                box-shadow: none !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans min-h-screen flex flex-col justify-between relative overflow-x-hidden transition-colors duration-300">
-
-<!-- MARCA DE AGUA DE FONDO -->
-    <div class="fixed inset-0 pointer-events-none flex items-center justify-center overflow-hidden z-0">
-        <!-- Imagen para el Modo Claro (más transparente) -->
-        <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center opacity-[0.06] dark:hidden transition-all duration-500"
-             style="background-image: url('assets/logo-light.png'); background-size: contain;">
-        </div>
-        <!-- Imagen para el Modo Oscuro (más transparente) -->
-        <div class="w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-no-repeat bg-center hidden dark:block opacity-[0.12] filter drop-shadow-[0_0_35px_rgba(6,182,212,0.8)] transition-all duration-500"
-             style="background-image: url('assets/logo-dark.png'); background-size: contain;">
-        </div>
-    </div>
 
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="relative z-10 flex flex-col min-h-screen justify-between">
         
-        <!-- Barra de Navegación Estilo UNEXPO -->
-        <header class="bg-[#0073e6] dark:bg-gray-900/90 dark:backdrop-blur-md dark:border-b dark:border-cyan-500/30 text-white shadow-md transition-colors duration-300">
-            <div class="container mx-auto px-4 py-3 flex justify-between items-center flex-wrap gap-4">
-                <div class="flex items-center gap-6">
-                    <h1 class="text-xl font-bold tracking-wider cursor-pointer flex items-center gap-2" id="nav-home">
-                        UNEXPO<span class="text-yellow-300 dark:text-cyan-400 dark:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">Tools</span>
-                    </h1>
-                    <nav class="space-x-4 text-sm font-medium hidden sm:block">
-                        <button id="nav-schedule" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Organizador</button>
-                        <button id="nav-checker" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Prelaciones</button>
-                    </nav>
-                </div>
+        <div>
+            <!-- Barra de Navegación / Encabezado Principal -->
+            <header class="app-header bg-[#1e3a8a] dark:bg-gray-900/90 dark:backdrop-blur-md dark:border-b dark:border-cyan-500/35 text-white shadow-md transition-colors duration-300 py-6">
+                <div class="container mx-auto px-4 max-w-5xl">
+                    <div class="flex justify-between items-center flex-wrap gap-4 mb-4">
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-2xl font-bold tracking-wider">UNESR Pensum+</h1>
+                            <span class="bg-amber-500 text-xs font-semibold px-2.5 py-0.5 rounded-full text-white">Interactivo</span>
+                        </div>
+                        
+                        <!-- Botón de Modo Oscuro / Claro -->
+                        <button id="themeToggleBtn" class="theme-toggle-btn p-2 rounded-lg bg-blue-700 dark:bg-gray-800 text-yellow-200 dark:text-cyan-400 transition border border-transparent dark:border-cyan-500/50 flex items-center gap-2 cursor-pointer" onclick="toggleTheme()">
+                            <span id="themeIcon">🌙</span> <span id="themeText" class="text-sm">Modo Oscuro</span>
+                        </button>
+                    </div>
+                    
+                    <p class="text-sm opacity-90 mb-4">Selecciona tu carrera, marca las materias aprobadas y controla tu avance académico respetando prelaciones y créditos.</p>
+                    
+<!-- Selector de Carreras -->
+<div class="career-selector-box mb-4">
+    <label for="careerSelect" class="block text-xs font-semibold mb-1 uppercase tracking-wider">Selecciona tu Carrera / Pensum:</label>
+    <select id="careerSelect" class="w-full max-w-xl p-2.5 rounded-lg border-none text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 font-medium shadow-sm outline-none cursor-pointer" onchange="cambiarCarrera()">
+        <optgroup label="Administración">
+            <option value="adm_rrhh">Licenciatura en Administración - Recursos Humanos (Actual)</option>
+            <option value="adm_rrhh_1980">Licenciatura en Administración - Recursos Humanos (Pensum 1980)</option>
+            <option value="adm_mercadeo">Licenciatura en Administración - Mercadeo (Actual)</option>
+            <option value="adm_mercadeo_1980">Licenciatura en Administración - Mercadeo (Pensum 1980)</option>
+        </optgroup>
+        <optgroup label="Ciencias de la Educación">
+            <option value="edu_inicial">Educación Inicial (Actual)</option>
+            <option value="edu_inicial_1980">Educación Inicial (Pensum 1980)</option>
+            <option value="edu_integral">Educación Integral (Actual)</option>
+            <option value="edu_integral_1992">Educación Integral (Pensum 1992)</option>
+            <option value="edu_orientacion">Educación - Mención: Orientación</option>
+        </optgroup>
+        <optgroup label="Docencia">
+            <option value="doc_ingles">Docencia - Mención: Idioma Inglés (Actual)</option>
+            <option value="doc_ingles_1980">Docencia - Mención: Idioma Inglés (Pensum 1980)</option>
+            <option value="doc_matematicas">Docencia - Mención: Matemáticas (Actual)</option>
+            <option value="doc_matematicas_1982">Docencia - Mención: Matemáticas (Pensum 1982)</option>
+        </optgroup>
+        <optgroup label="Ingeniería y Ciencias del Agro">
+            <option value="ing_alimentos">Ingeniería de Alimentos</option>
+            <option value="electronica_control">Ingeniería Electrónica - Mención Control</option>
+            <option value="med_veterinaria">Medicina Veterinaria (PNF)</option>
+            <option value="fisioterapia">Fisioterapia (PNF)</option>
+        </optgroup>
+    </select>
+</div>                    <!-- Barra de Progreso -->
+                    <!-- Barras de Progreso Duales (Fijas y Electivas) -->
+                    <div class="progress-container bg-white/10 dark:bg-gray-800/50 p-4 rounded-lg max-w-xl space-y-3">
+                        <!-- Progreso Fijas -->
+                        <div>
+                            <div class="progress-info flex justify-between text-xs font-semibold mb-1">
+                                <span>Materias Fijas / Obligatorias:</span>
+                                <span id="progressTextFijas">0%</span>
+                            </div>
+                            <div class="progress-bar w-full h-2.5 bg-white/30 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div id="progressFillFijas" class="progress-fill h-full bg-blue-500 w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
 
-                <!-- Accesos rápidos de ingenierías y Controles de la derecha -->
-                <div class="flex items-center space-x-4 flex-wrap">
-                    <div class="hidden lg:flex items-center gap-1 bg-blue-800/60 dark:bg-gray-950 p-1 rounded-xl border border-blue-600/40 dark:border-cyan-500/30">
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="electronica">Electrónica</button>
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="electrica">Eléctrica</button>
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="mecanica">Mecánica</button>
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="metalurgica">Metalúrgica</button>
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="quimica">Química</button>
-                        <button class="nav-career-btn px-2.5 py-1 rounded-lg text-xs font-semibold text-white dark:text-cyan-300 hover:bg-blue-700 dark:hover:bg-gray-800 transition" data-career="industrial">Industrial</button>
-                        <button id="nav-biblioteca" class="hover:text-yellow-200 dark:hover:text-cyan-300 transition">Biblioteca</button>
+                        <!-- Progreso Electivas (Topado a 23 UC) -->
+                        <div>
+                            <div class="progress-info flex justify-between text-xs font-semibold mb-1">
+                                <span>Cursos Electivos (Meta: 23 UC):</span>
+                                <span id="progressTextElectivas">0%</span>
+                            </div>
+                            <div class="progress-bar w-full h-2.5 bg-white/30 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div id="progressFillElectivas" class="progress-fill h-full bg-purple-500 w-0 transition-all duration-300"></div>
+                            </div>
+                        </div>
                     </div>
 
-
-                    <!-- Botón de Modo Oscuro / Neón -->
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-blue-700 dark:bg-gray-800 text-yellow-200 dark:text-cyan-400 dark:hover:shadow-[0_0_10px_rgba(6,182,212,0.6)] transition border border-transparent dark:border-cyan-500/50" title="Cambiar modo oscuro/neón">
-                        <span id="theme-icon">🌙</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <!-- Contenido Dinámico -->
-        <main id="app-container" class="flex-grow container mx-auto px-4 py-8">
-            <!-- Las vistas se cargan aquí -->
+        <!-- Contenido Dinámico de las Materias y Semestres -->
+        <main class="container mx-auto px-4 py-8 max-w-5xl flex-grow" id="pensumContent">
+            <!-- Las tarjetas de materias se cargan aquí dinámicamente -->
         </main>
 
         <!-- Pie de página con Anuncios ordenados uno al lado del otro -->
@@ -167,26 +130,13 @@
                     </div>
                 </div>
 
-                <p class="mt-2">UNEXPOTools &copy; 2026 - Hecho por y para estudiantes de la UNEXPO ⚙️</p>
+                <p class="mt-2 text-xs">&copy; 2026 UNESR Pensum+ — Herramienta independiente para estudiantes.</p>
             </div>
         </footer>
 
     </div>
 
-  <!-- Script Principal y Manejador de Accesos Rápidos de la Barra -->
-    <script type="module" src="js/app.js"></script>
-    <script>
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('nav-career-btn')) {
-                const career = e.target.getAttribute('data-career');
-                localStorage.setItem('unexpo_selected_career', career);
-                window.dispatchEvent(new CustomEvent('navigate', { detail: 'proximamente' }));
-            }
-            // Manejar clic en el botón de la biblioteca de la barra superior
-            if (e.target.id === 'nav-biblioteca') {
-                window.dispatchEvent(new CustomEvent('navigate', { detail: 'biblioteca' }));
-            }
-        });
-    </script>
+    <!-- Script Principal -->
+    <script src="script.js"></script>
 </body>
 </html>

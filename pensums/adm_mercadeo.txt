@@ -1,0 +1,64 @@
+AMERCI101, Iniciación Universitaria, 2, Ninguna, INTRODUCTORIO
+AMERCI102, Lenguaje y Comunicación, 2, Ninguna, INTRODUCTORIO
+AMERCI103, Métodos y Técnicas de Estudios, 2, Ninguna, INTRODUCTORIO
+AMERCI104, Precálculo, 3, Ninguna, INTRODUCTORIO
+AMERCI105, Ética Valores y Autobiografía, 2, Ninguna, INTRODUCTORIO
+AMERCI106, Pensamiento Robinsoniano, 2, Ninguna, INTRODUCTORIO
+AMERCI107, Pensamiento Andragógico, 2, Ninguna, INTRODUCTORIO
+AMERCG201, Terminología en Estadística e Investigación, 2, Ninguna, GENERAL
+AMERCG202, Idioma Moderno, 2, Ninguna, GENERAL
+AMERCG203, Estadística I, 3, Ninguna, GENERAL
+AMERCG204, Estadística II, 3, AMERCG203, GENERAL
+AMERCG205, Metodología de la Investigación I, 3, AMERCI103, GENERAL
+AMERCG206, Metodología de la Investigación II, 3, AMERCG205, GENERAL
+AMERCG207, Gestión de Tecnología, 3, AMERCG206, GENERAL
+AMERCG208, Contabilidad I, 3, Ninguna, GENERAL
+AMERCG209, Contabilidad II, 3, AMERCG208, GENERAL
+AMERCG210, Análisis de Estados Financieros, 3, AMERCG209, GENERAL
+AMERCG211, Introducción a la Administración, 3, Ninguna, GENERAL
+AMERCG212, Administración de Recursos Humanos, 3, Ninguna, GENERAL
+AMERCG213, Administración Pública, 2, Ninguna, GENERAL
+AMERCG214, Legislación Mercantil, 2, Ninguna, GENERAL
+AMERCG215, Economía General, 3, Ninguna, GENERAL
+AMERCG216, Historia Económica y Social de Venezuela, 2, Ninguna, GENERAL
+AMERCG217, Matemática Financiera, 3, Ninguna, GENERAL
+AMERCG218, Presupuesto, 2, Ninguna, GENERAL
+AMERCG219, Finanzas e Impuesto, 2, Ninguna, GENERAL
+AMERCG220, Mercadeo, 3, Ninguna, GENERAL
+AMERCG221, Introducción al Procesamiento de Datos, 3, Ninguna, GENERAL
+AMERCG222, Educación Ambiental, 2, Ninguna, GENERAL
+AMERCG223, Educación Física y Deporte, 2, Ninguna, GENERAL
+AMERCP301, Investigación de Mercadeo, 2, AMERCG206, PROFESIONAL
+AMERCP302, Psicología Aplicada, 3, Ninguna, PROFESIONAL
+AMERCP303, Aspectos Legales del Mercadeo, 3, Ninguna, PROFESIONAL
+AMERCP304, Administración y Organización de Ventas, 3, AMERCG211, PROFESIONAL
+AMERCP305, Técnicas de Programación y Control Aplicadas al Mercadeo, 3, Ninguna, PROFESIONAL
+AMERCP306, Mercadeo II, 4, AMERCG220, PROFESIONAL
+AMERCP307, Dirección de Mercadeo, 4, Ninguna, PROFESIONAL
+AMERCP308, Análisis de Productos, 3, Ninguna, PROFESIONAL
+AMERCP309, Análisis de Productividad del Mercadeo, 3, Ninguna, PROFESIONAL
+AMERCP310, Publicidad y Promoción, 3, Ninguna, PROFESIONAL
+AMERCP311, Comercialización, 4, Ninguna, PROFESIONAL
+AMERCP312, Técnicas de Distribución y Localización de Facilidades, 3, Ninguna, PROFESIONAL
+AMERCP313, Planificación y Estrategias de Mercadeo, 3, Ninguna, PROFESIONAL
+AMERCP314, Proyecto I - Mercadeo, 6, AMERCG206, PROFESIONAL
+AMERCP315, Proyecto II - Mercadeo, 6, AMERCP314, PROFESIONAL
+AMERCP316, Seminario del Trabajo Especial de Grado, 4, AMERCP315, PROFESIONAL
+AMERCP317, Pasantía - Mercadeo, 10, Ninguna, PROFESIONAL
+AMERCP318, Servicio Comunitario, 0, Ninguna, PROFESIONAL
+AMERCP319, Trabajo Especial de Grado, 10, AMERCP316, PROFESIONAL
+ADMEL014, Organización del Mercadeo en Venezuela, 2, Ninguna, ELECTIVA
+USREML01, Moral y Luces, 2, Ninguna, ELECTIVA
+ADMEL001, Modelos Administrativos, 2, Ninguna, ELECTIVA
+ADMEL007, Derecho del Trabajo, 3, Ninguna, ELECTIVA
+ADMEL002, Administración de la Producción, 2, Ninguna, ELECTIVA
+ADMEL003, Técnicas de Decisión y sus Procesos, 3, AMERCG221, ELECTIVA
+ADMEL004, Planificación, 3, AMERCG209, ELECTIVA
+ADMEL012, Desarrollo Organizacional, 4, Ninguna, ELECTIVA
+ADMEL013, Sistemas de Información Gerencial, 2, Ninguna, ELECTIVA
+ADMEL011, Contabilidad de Costos I, 3, Ninguna, ELECTIVA
+AMEREL01, Análisis y Manejo de Carteras de Inversiones, 3, Ninguna, ELECTIVA
+AMEREL02, Comercio Internacional, 3, Ninguna, ELECTIVA
+ADMEL008, Formulación y Evaluación de Proyectos, 3, Ninguna, ELECTIVA
+ADMEL009, Calidad y Productividad, 3, Ninguna, ELECTIVA
+ADMEDEL1, Derechos Humanos Democracia y Paz, 2, Ninguna, ELECTIVA
